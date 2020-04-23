@@ -20,7 +20,13 @@ pipeline {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     }
                 }
-            } 
+            }
+
+            stage('Scan') {
+                steps{
+                    aquaMicroscanner imageName: 'capstone', notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html'
+                }
+            }
             stage('Deploy Image') {
                 steps{
                 script {
