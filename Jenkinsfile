@@ -22,11 +22,6 @@ pipeline {
                 }
             }
 
-            stage('Scan') {
-                steps{
-                    aquaMicroscanner imageName: 'capstone', notCompliesCmd: 'exit 4', onDisallowed: 'pass', outputFormat: 'html'
-                }
-            }
             stage('Deploy Image') {
                 steps{
                 script {
