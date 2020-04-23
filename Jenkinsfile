@@ -27,7 +27,22 @@ pipeline {
                 script {
                     docker.withRegistry( '', registryCredential ) {
                     dockerImage.push()
+                        }
                     }
+                }
+            }
+
+            stage('Configure and Build Kubernetes Cluster'){
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'ansible-playbook ./playbooks/create-cluster.yml'
+                    }
+                }
+            }
+            stage('Deploy Updated Image to Cluster'){
+                steps {
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'sudo kubectl apply -f ./deployments'
                 }
             }
         }
