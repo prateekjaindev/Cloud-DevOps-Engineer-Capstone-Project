@@ -40,51 +40,12 @@ pipeline {
                     }
                 }
             }
-
-		stage('Deploy blue container') {
-			steps {
-				withAWS(region:'ap-south-1', credentials:'eks_cluster') {
-					sh '''
-						kubectl apply -f ./blue-controller.json
-					'''
-				}
-			}
-		}
-
-		stage('Deploy green container') {
-			steps {
-				withAWS(region:'ap-south-1', credentials:'eks_cluster') {
-					sh '''
-						kubectl apply -f ./green-controller.json
-					'''
-				}
-			}
-		}
-
-		stage('Create the service in the cluster, redirect to blue') {
-			steps {
-				withAWS(region:'ap-south-1', credentials:'eks_cluster') {
-					sh '''
-						kubectl apply -f ./blue-service.json
-					'''
-				}
-			}
-		}
-
-		stage('Wait user approve') {
-            steps {
-                input "Ready to redirect traffic to green?"
+            stage('Deploy Updated Image to Cluster'){
+                steps {
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'sudo kubectl apply -f ./deployments'
+                }
             }
         }
-
-		stage('Create the service in the cluster, redirect to green') {
-			steps {
-				withAWS(region:'ap-south-1', credentials:'eks_cluster') {
-					sh '''
-						kubectl apply -f ./green-service.json
-					'''
-				}
-			}
-		}
     }
 }

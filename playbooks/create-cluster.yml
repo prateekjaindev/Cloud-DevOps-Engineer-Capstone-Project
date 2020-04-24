@@ -3,7 +3,7 @@
       connection: local
       vars:
         download_dir: "{{ lookup('env', 'HOME') }}"
-        kubernetes_version: "1.15"
+        kubernetes_version: "1.14"
       become: yes
       tasks:
         # Ensure aws cli is installed and configured on local before running these plays
@@ -45,7 +45,7 @@
           block:
             - name: Download kubectl
               get_url:
-                url: "https://storage.googleapis.com/kubernetes-release/release/v1.16.2/bin/linux/amd64/kubectl"
+                url: "https://storage.googleapis.com/kubernetes-release/release/v1.16 .2/bin/linux/amd64/kubectl"
                 dest: "{{ download_dir }}"
             - name: Move kubectl to /usr/local/bin
               command: mv {{ download_dir }}/kubectl /usr/local/bin
