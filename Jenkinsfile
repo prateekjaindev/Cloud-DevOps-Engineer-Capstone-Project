@@ -22,7 +22,7 @@ pipeline {
                     }
                 }
             }
-            
+
             stage('Deploy Image') {
                 steps{
                 script {
@@ -32,7 +32,7 @@ pipeline {
                     }
                 }
             }
-
+            
             stage('Configure and Build Kubernetes Cluster'){
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
