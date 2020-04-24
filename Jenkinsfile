@@ -25,8 +25,10 @@ pipeline {
 
             stage('Container Security Scan') {
                 steps {
+                script {
                     sh 'echo "docker.io/prateekjain/capstone 'pwd'/Dockerfile" > anchore_images'
                     anchore name: 'anchore_images'
+                    }
                 }
             }
             stage('Deploy Image') {
