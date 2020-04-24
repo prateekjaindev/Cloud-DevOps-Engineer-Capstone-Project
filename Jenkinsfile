@@ -22,15 +22,7 @@ pipeline {
                     }
                 }
             }
-
-            stage('Container Security Scan') {
-                steps {
-                script {
-                    sh 'anchore-cli image add docker.io/library/debian:latest'
-                    sh 'anchore-cli image get docker.io/library/debian:latest'
-                    }
-                }
-            }
+            
             stage('Deploy Image') {
                 steps{
                 script {
