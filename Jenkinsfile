@@ -26,8 +26,8 @@ pipeline {
             stage('Container Security Scan') {
                 steps {
                 script {
-                    sh 'echo "docker.io/prateekjain/capstone 'pwd'/Dockerfile" > anchore_images'
-                    anchore name: 'anchore_images'
+                    sh 'anchore-cli image add docker.io/library/debian:latest'
+                    sh 'anchore-cli image get docker.io/library/debian:latest'
                     }
                 }
             }
