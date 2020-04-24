@@ -3,7 +3,7 @@
       connection: local
       vars:
         download_dir: "{{ lookup('env', 'HOME') }}"
-        kubernetes_version: "1.18"
+        kubernetes_version: "1.16"
       become: yes
       tasks:
         # Ensure aws cli is installed and configured on local before running these plays
