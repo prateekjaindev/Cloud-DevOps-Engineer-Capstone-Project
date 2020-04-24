@@ -76,5 +76,5 @@
                 --managed
               become: no
             - name: Update kubeconfig
-              command: aws eks --region ap-south-1 update-kubeconfig --name my-devops-capstone-cluster
+              command: aws eks --region ap-south-1 update-kubeconfig --name capstone-cluster
           when: "existing_clusters.stdout.find('No clusters found') != -1"
