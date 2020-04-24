@@ -40,13 +40,6 @@ pipeline {
                     }
                 }
             }
-            stage('Deploy Updated Image to Cluster'){
-                steps {
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'sudo kubectl apply -f ./deployments'
-                    }
-                }
-            }
 
             stage('Set current kubectl context') {
 			steps {
