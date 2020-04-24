@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: openapi/v2
 kind: Deployment
 metadata:
   name: devops-capstone-deployment
