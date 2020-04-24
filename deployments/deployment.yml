@@ -20,4 +20,4 @@ spec:
         - name: devops-capstone
           image: prateekjain/capstone:latest
           ports:
-            - containerPort: 8765
+            - containerPort: 80

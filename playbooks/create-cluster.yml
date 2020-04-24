@@ -65,9 +65,9 @@
             - name: Setup clusters on 4 nodes
               command: >
                 eksctl create cluster
-                --name capstone-project
+                --name capstone-project-cluster
                 --version {{ kubernetes_version }}
-                --region ap-south-1
+                --region ap-east-1
                 --nodegroup-name workers-node
                 --node-type t2.micro
                 --nodes 2
@@ -76,5 +76,5 @@
                 --managed
               become: no
             - name: Update kubeconfig
-              command: aws eks --region ap-south-1 update-kubeconfig --name capstone-cluster
+              command: aws eks --region ap-east-1 update-kubeconfig --name capstone-project-cluster
           when: "existing_clusters.stdout.find('No clusters found') != -1"
