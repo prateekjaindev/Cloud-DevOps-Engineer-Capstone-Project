@@ -55,11 +55,11 @@
                 mode: +x
           when: "local_binaries.stdout.find('kubectl') == -1"
         # ensure that only one cluster exists at a time
-        - name: Get existing cluster
-          command: eksctl get clusters
-          register: existing_clusters
-          become: no
-        - debug: msg=" {{ existing_clusters.stdout }}"
+       # - name: Get existing cluster
+       #   command: eksctl get clusters
+       #   register: existing_clusters
+       #   become: no
+       # - debug: msg=" {{ existing_clusters.stdout }}"
         - name: Setup K8s-cluster with eksctl
           block:
             - name: Setup clusters on 2 nodes
