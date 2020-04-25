@@ -68,7 +68,7 @@
                 --name capstone-project
                 --version {{ kubernetes_version }}
                 --region ap-southeast-2
-                --nodegroup-name standard-workers
+                --nodegroup-name worker-node
                 --node-type t2.micro
                 --nodes 2
                 --nodes-min 1
