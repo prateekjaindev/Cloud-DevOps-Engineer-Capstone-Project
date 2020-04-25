@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: devops-capstone
-          image: prateekjain/capstone:3
+          image: prateekjain/capstone
           ports:
-            - containerPort: 8
+            - containerPort: 80
