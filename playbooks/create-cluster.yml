@@ -66,15 +66,15 @@
               command: >
                 eksctl create cluster
                 --name capstone-project
-                --version {{ kubernetes_version }}
-                --region ap-southeast-2
+                --version {{ kubernetes_version }}s
+                --region ap-northeast-1
                 --nodegroup-name worker-node
                 --node-type t2.micro
                 --nodes 2
                 --nodes-min 1
                 --nodes-max 2
-                --managed
+                --node-ami auto
               become: no
             - name: Update kubeconfig
-              command: aws eks --region ap-southeast-2 update-kubeconfig --name capstone-project
+              command: aws eks --region ap-northeast-1 update-kubeconfig --name capstone-project
           when: "existing_clusters.stdout.find('No clusters found') != -1"
