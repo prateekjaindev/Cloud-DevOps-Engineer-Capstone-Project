@@ -23,6 +23,6 @@ In this porject I hvae created a CICD pipeline as my Capstone project of the Uda
 
 ## Project Architecture
 
-![CI/CD Pipeline](https://www.lucidchart.com/invitations/accept/ce46f5ce-5cfe-4c87-b98e-523a3b77c70b)
+![CI/CD Pipeline](https://raw.githubusercontent.com/prateekjaindev/Cloud-DevOps-Engineer-Capstone-Project/master/ScreenShots/CICI%20Pipeline.png)
 
 
