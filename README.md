@@ -1,6 +1,6 @@
 # Cloud-DevOps-Engineer-Capstone-Project
 
-In this porject I hvae created a CICD pipeline as my Capstone project of the Udacity Cloud DevOps Nano Degree.
+In this project, I have created a CICD pipeline as my Capstone project of the Udacity Cloud DevOps Nano Degree.
 
 ## Project Requirements
 
@@ -19,7 +19,7 @@ In this porject I hvae created a CICD pipeline as my Capstone project of the Uda
 * Building Docker image
 * Push Docker image to the Docker Hub
 * Deploy EKS cluster with Ansible playbook
-* Deplying Docker image to the cluster
+* Deploying Docker image to the cluster
 
 ## Project Architecture
 
